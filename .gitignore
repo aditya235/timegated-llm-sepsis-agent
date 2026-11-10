@@ -1,0 +1,18 @@
+# Never commit MIMIC-III data or anything derived from it (PhysioNet data use agreement)
+*.duckdb
+*.duckdb.wal
+*.csv
+*.parquet
+*.jsonl
+*.joblib
+*.xlsx
+*.png
+agent_runs/
+mimic_project/
+clinician_review/
+
+# Python / Jupyter
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+*.pyc
