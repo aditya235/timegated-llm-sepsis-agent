@@ -2,23 +2,23 @@
 
 Code for:
 
-> Saxena A, Sinha RK. **A human-supervised agentic AI framework for clinical analytics: on-premises implementation and an ICU sepsis case study.** *Manuscript submitted.* [Add journal, year and DOI when available.]
+> Saxena A, Sinha RK. **TIGER-AI: a human-supervised agentic AI framework for clinical analytics—on-premises implementation and an ICU sepsis case study.** *Manuscript submitted.* [Add journal, year and DOI when available.]
 
-The paper proposes a layered framework for using AI agents in hospital clinical analytics. A validated risk engine produces the patient's risk, a locally served LLM agent finds and explains the supporting evidence, a verification step checks what the agent cites, and the clinician makes the decision. A governance layer runs across all of it: time-gating, automated leakage testing, read-only data access, audit logging and human oversight.
+The paper proposes **TIGER-AI** (Time-gated, Governed, Evidence-verified, Risk-engine-anchored AI), a layered framework for using AI agents in hospital clinical analytics. A validated risk engine produces the patient's risk, a locally served LLM agent finds and explains the supporting evidence, a verification step checks what the agent cites, and the clinician makes the decision. A governance layer runs across all of it: time-gating, automated leakage testing, read-only data access, audit logging and human oversight.
 
-![Agentic AI framework architecture](figures/Fig1_framework_architecture.svg)
+![TIGER-AI architecture](figures/Fig1_framework_architecture.svg)
 
-*Fig. 1. Agentic AI framework architecture. Solid boxes were implemented and tested in the case study; dashed boxes are proposed.*
+*Fig. 1. TIGER-AI architecture. Solid boxes were implemented and tested in the case study; dashed boxes are proposed.*
 
 ![Clinical workflow for one patient at one decision point](figures/Fig2_clinical_workflow.svg)
 
-*Fig. 2. Clinical workflow for one patient at one decision point.*
+*Fig. 2. TIGER-AI clinical workflow for one patient at one decision point.*
 
 This repository contains the implementation used for the paper's case study: 12-hour early warning of ICU-onset Sepsis-3 in MIMIC-III. **It contains no MIMIC-III data, derived data or outputs.**
 
 ---
 
-## Framework components and where they are in the code
+## TIGER-AI components and where they are in the code
 
 | Framework layer | Component | Notebook part |
 |---|---|---|
@@ -27,7 +27,7 @@ This repository contains the implementation used for the paper's case study: 12-
 | Models and tools | Risk engine: tuned, Platt-calibrated gradient boosting on time-gated features | Part 12 |
 | Agents | Evidence agent: ReAct-style tool-calling loop with a local open-weight LLM served by vLLM | Parts 7–8 |
 | Agents | Agent with the engine's risk available as a tool | Part 14 |
-| Governance | Automated leakage test (no tool may return data recorded after the decision time) | Part 6 (and Parts 11, 14 for added tools) |
+| Governance | Automated leakage test (no tool may return data recorded after the decision time; Algorithm 1 in the paper) | Part 6 (and Parts 11, 14 for added tools) |
 | Governance | Faithfulness check: numbers cited by the agent matched against tool outputs | Part 9 |
 | Evaluation | Discrimination at the true prevalence, calibration, alert burden, decision curves | Parts 9, 12 |
 
