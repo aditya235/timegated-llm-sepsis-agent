@@ -1,8 +1,8 @@
-# timegated-llm-sepsis-agent
+# TIGER-AI: Time-Gated LLM Sepsis Agent
 
 Code for:
 
-> Saxena A, Sinha RK. **TIGER-AI: a human-supervised agentic AI framework for clinical analytics—on-premises implementation and an ICU sepsis case study.** *Manuscript submitted.* [Add journal, year and DOI when available.]
+> Saxena A, Sinha RK. **TIGER-AI: A Human-Supervised Agentic AI Framework for Clinical Analytics—On-Premises Implementation and an ICU Sepsis Case Study.** *Manuscript submitted.* [Add journal, year and DOI when available.]
 
 The paper proposes **TIGER-AI** (Time-gated, Governed, Evidence-verified, Risk-engine-anchored AI), a layered framework for using AI agents in hospital clinical analytics. A validated risk engine produces the patient's risk, a locally served LLM agent finds and explains the supporting evidence, a verification step checks what the agent cites, and the clinician makes the decision. A governance layer runs across all of it: time-gating, automated leakage testing, read-only data access, audit logging and human oversight.
 
